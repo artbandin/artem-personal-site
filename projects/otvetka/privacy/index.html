@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="ru" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Артём Бандин" />
+  <meta name="description" content="Политика конфиденциальности расширения «Ответка» для AI-ответов на отзывы в Google Chrome." />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="googlebot" content="noindex, nofollow" />
+  <meta name="yandex" content="noindex, nofollow" />
+  <meta name="theme-color" content="#000000" />
+  <title>Политика конфиденциальности — Ответка</title>
+  <link rel="icon" href="../../../assets/profile-photo.svg" type="image/svg+xml" />
+  <script>
+    (function () {
+      var theme = 'dark';
+      try {
+        theme = localStorage.getItem('theme') || 'dark';
+        localStorage.setItem('theme', theme);
+      } catch (e) {}
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+  <style>
+    :root {
+      --bg: #000000;
+      --text: #d7d7dc;
+      --strong: #f4f4f5;
+      --muted: #92929a;
+      --faint: #6f6f78;
+      --accent: #f4f4f5;
+      --line: rgba(255,255,255,.085);
+      --link-bg: rgba(255,255,255,.05);
+      --mono: "IBM Plex Mono", "SFMono-Regular", ui-monospace, Menlo, Consolas, monospace;
+      --sans: "Söhne", "Inter", "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --display: "Söhne", "Inter Display", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color-scheme: dark;
+    }
+    :root[data-theme="light"] {
+      --bg: #f5f5f4;
+      --text: #18181b;
+      --strong: #09090b;
+      --muted: #71717a;
+      --faint: #a1a1aa;
+      --accent: #0f766e;
+      --line: rgba(24,24,27,.14);
+      --link-bg: rgba(15,118,110,.08);
+      color-scheme: light;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      font-size: 15.5px;
+      line-height: 1.55;
+      letter-spacing: 0;
+      font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      transition: background .2s ease, color .2s ease;
+    }
+    .wrap { max-width: 720px; margin: 0 auto; padding: 34px 18px 60px; }
+    a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; }
+    a:hover { border-bottom-color: var(--accent); }
+    b, strong { color: var(--strong); font-weight: 620; }
+    code { font-family: var(--mono); font-size: .88em; background: var(--link-bg); padding: 1px 6px; border-radius: 4px; color: var(--strong); }
+    h1 { margin: 4px 0 6px; color: var(--strong); font-family: var(--display); font-size: clamp(1.4rem, 3.6vw, 1.8rem); line-height: 1.15; letter-spacing: 0; font-weight: 620; }
+    h2 { margin: 32px 0 10px; color: var(--strong); font-family: var(--display); font-size: clamp(1.05rem, 2.4vw, 1.18rem); line-height: 1.25; font-weight: 620; }
+    p { margin: 0 0 14px; max-width: 64ch; }
+    ul, ol { margin: 0 0 14px; padding: 0; list-style: none; max-width: 68ch; }
+    li { position: relative; margin: 8px 0; padding-left: 18px; color: var(--text); }
+    ul > li::before { content: ""; position: absolute; left: 0; top: .72em; width: 8px; height: 1px; border-radius: 999px; background: var(--faint); }
+    ol { counter-reset: item; }
+    ol > li { counter-increment: item; }
+    ol > li::before { content: counter(item) "."; position: absolute; left: 0; top: 0; color: var(--faint); font-variant-numeric: tabular-nums; }
+    .updated { margin: 0 0 24px; color: var(--muted); font-size: .9rem; }
+    .lede { padding: 14px 16px; margin: 0 0 24px; border-left: 2px solid var(--line); color: var(--text); background: var(--link-bg); border-radius: 4px; }
+    .lede p { margin: 0; }
+    .back { display: inline-block; margin-top: 36px; color: var(--muted); font-size: .92rem; }
+    @media (max-width: 700px) {
+      .wrap { padding-top: 28px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <h1>Политика конфиденциальности расширения «Ответка»</h1>
+    <p class="updated">Обновлено: 23 апреля 2026 г.</p>
+
+    <p>Этот документ описывает, какие данные обрабатывает расширение «Ответка» (далее — «расширение»), и что с ними происходит.</p>
+
+    <div class="lede">
+      <p>Коротко: расширение не собирает ваши данные. Своих серверов у расширения нет. API-ключ и настройки хранятся только локально в вашем браузере. Тексты отзывов уходят напрямую в OpenAI по вашему ключу.</p>
+    </div>
+
+    <h2>Кто автор</h2>
+    <p>Расширение сделано Артёмом Бандиным.</p>
+
+    <h2>Какие данные обрабатывает расширение</h2>
+    <p>Расширение обрабатывает три типа данных:</p>
+    <ol>
+      <li><b>Ваш API-ключ OpenAI.</b> Вводите один раз в настройках расширения. Хранится локально, через стандартный API <code>chrome.storage.local</code>. Ключ передаётся только в OpenAI и только в заголовке <code>Authorization</code> запроса к их API. Никуда больше ключ не отправляется.</li>
+      <li><b>Настройки расширения.</b> Системный промпт, выбранная модель, <code>temperature</code>, <code>max_tokens</code>, лимит символов для контекста. Хранятся локально там же, где ключ.</li>
+      <li><b>Тексты отзывов и (по вашему желанию) дополнительный контекст от бизнеса.</b> Когда вы нажимаете «Придумать», расширение читает отзыв со страницы Яндекс.Бизнеса и отправляет его в OpenAI Chat Completions API вместе с вашим промптом. Ответ возвращается и подставляется в поле ответа. Дальше отправку ответа на Яндекс делаете вы вручную.</li>
+    </ol>
+
+    <h2>Что расширение <b>не</b> делает</h2>
+    <ul>
+      <li>Не отправляет никаких данных на серверы автора расширения — у расширения нет своих серверов.</li>
+      <li>Не использует аналитику, телеметрию, счётчики, cookie и трекеры.</li>
+      <li>Не читает другие страницы, кроме страниц отзывов Яндекс.Бизнеса, указанных в manifest.</li>
+      <li>Не хранит историю ваших отзывов, ответов или запросов.</li>
+      <li>Не делится данными с третьими лицами (кроме OpenAI, без которого расширение физически не работает).</li>
+    </ul>
+
+    <h2>Куда уходят данные</h2>
+    <ul>
+      <li><b>OpenAI</b> — получает текст отзыва, имя автора, оценку, ваш системный промпт и опциональный контекст, когда вы нажимаете «Придумать». Обработка подчиняется политикам OpenAI: <a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noreferrer">openai.com/policies/privacy-policy</a> и <a href="https://openai.com/policies/api-data-usage-policies" target="_blank" rel="noreferrer">openai.com/policies/api-data-usage-policies</a>. По состоянию на апрель 2026 OpenAI не использует данные, отправленные через API, для обучения моделей без вашего явного согласия.</li>
+    </ul>
+    <p>Никуда больше данные не уходят.</p>
+
+    <h2>Как удалить данные</h2>
+    <ul>
+      <li>Удалите расширение через <code>chrome://extensions/</code> — <code>chrome.storage.local</code> очищается автоматически вместе с расширением.</li>
+      <li>Или вручную: в настройках расширения сотрите API-ключ и нажмите «Сохранить».</li>
+      <li>Данные, уже отправленные в OpenAI, удаляются по правилам OpenAI (см. ссылки выше).</li>
+    </ul>
+
+    <h2>Разрешения расширения и зачем они нужны</h2>
+    <ul>
+      <li><code>storage</code> — хранить API-ключ и настройки локально.</li>
+      <li><code>activeTab</code> — отправлять команду генерации в текущую вкладку при нажатии горячей клавиши.</li>
+      <li><code>host_permissions</code> на <code>yandex.ru/sprav/*</code> — встраивать кнопку «Придумать» на страницах отзывов Яндекс.Бизнеса.</li>
+      <li><code>host_permissions</code> на <code>api.openai.com/*</code> — отправлять запросы к OpenAI API по вашему ключу.</li>
+    </ul>
+
+    <h2>Дети</h2>
+    <p>Расширение не предназначено для детей и не собирает данные о детях.</p>
+
+    <h2>Изменения политики</h2>
+    <p>Если политика поменяется, актуальная версия будет лежать по тому же адресу и в репозитории. Дата в начале документа — дата последнего обновления.</p>
+
+    <h2>Контакты</h2>
+    <p>Вопросы и запросы об удалении данных — в Telegram: <a href="https://t.me/artbandin" target="_blank" rel="noreferrer">@bandin_nomagic</a>.</p>
+
+    <a class="back" href="/">← на главную</a>
+  </main>
+</body>
+</html>

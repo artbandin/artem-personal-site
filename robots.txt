@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /projects/otvetka/
 
 Sitemap: https://artbandin.github.io/artem-personal-site/sitemap.xml
